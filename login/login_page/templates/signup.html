@@ -1,12 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/boost/boost.css">
 </head>
+
 <body>
-    <h1>this is sign up page</h1>
+    <header>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    <div>
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="username"></td>
+                            
+
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="email" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                    </div>
+                    <tr>
+                        <td><input type="submit"></td>
+                        <td><input type="reset"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </header>
     
+    <script src="{static 'js/boost.js'}"></script>
+
 </body>
+
 </html>
