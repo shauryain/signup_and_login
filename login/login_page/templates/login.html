@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="../static/boost/boost.css">
 </head>
 <body>
-    <form action="." method="post">
+    {% if msg %}
+    <h1> {{msg}}</h1>
+    {% endif %}
+    <form  method="post">
         <table>
             {% csrf_token %}
             <tr>
@@ -16,7 +19,7 @@
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input type="password" name="upassword" id="password"></td>
+                <td><input type="password" id="password" name="upassword" ></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit"></td>

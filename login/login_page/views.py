@@ -23,40 +23,43 @@ def signup(request):
         return render(request, 'signup.html')
     
 
-# def login(request):
-#     if request.method == 'POST':
-#         uname=request.POST.get('uname')
-#         pswd=request.POST.get('upassword')
-#         user= authenticate(request,username=uname,password=pswd)
-
-#         if user is not None:
-#             login(request,user)
-#             return redirect("/")
-#         else:
-#             messages.error={"msg": "Invalid username or password"}
-#             return render(request,"login.html")
-        
-#     else:
-
-#         return render(request, 'login.html')
-
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from django.shortcuts import render, redirect
-
-def login_view(request):
+def login(request):
     if request.method == 'POST':
-        uname = request.POST.get('uname')
-        pswd = request.POST.get('upassword')
-
-        user = authenticate(request, username=uname, password=pswd)
+        uname=request.POST.get('uname')
+        pswd=request.POST.get('upassword')
+        user= authenticate(request,username=uname,password=pswd)
 
         if user is not None:
-            login(request, user)
+            login(request,user)
             return redirect("/")
         else:
-            # Use add_message() to add an error message
-            messages.add_message(request, messages.ERROR, "Invalid username or password")
-            return render(request, "login.html")
+            d = {"msg": "Invalid username or password"}
+            return render(request,"login.html", d)
+        
     else:
-        return render(request, 'login.html')
+
+        return render(request, "login.html")
+
+# from django.contrib.auth import authenticate, login
+# from django.contrib import messages
+# from django.shortcuts import render, redirect
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         uname = request.POST.get('uname')
+#         pswd = request.POST.get('upassword')
+
+#         user = authenticate(request, username=uname, password=pswd)
+
+#         if user is not None:
+#             login(request, user)
+#             return redirect("/")
+#         else:
+#             # Use add_message() to add an error message
+#             messages.add_message(request, messages.ERROR, "Invalid username or password")
+#             return render(request, "login.html")
+#     else:
+#         return render(request, 'login.html')
+
+def error(request):
+    return redirect(request,"error.html")
