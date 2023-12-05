@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    "login_page"
+    'django.contrib.staticfiles',  # migrate
+    "login_page"  #migrations and migrate karn padta h
 ]
 
 MIDDLEWARE = [
